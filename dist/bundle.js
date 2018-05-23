@@ -747,7 +747,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nvar _Home = __webpack_require__(/*! ./components/Home */ \"./src/components/Home/index.js\");\n\nvar _Home2 = _interopRequireDefault(_Home);\n\nvar _configureReduxStore = __webpack_require__(/*! ./configureReduxStore */ \"./src/configureReduxStore.js\");\n\nvar _configureReduxStore2 = _interopRequireDefault(_configureReduxStore);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar store = (0, _configureReduxStore2.default)();\n\nvar App = function App() {\n  return _react2.default.createElement(\n    _reactRedux.Provider,\n    { store: store },\n    _react2.default.createElement(_Home2.default, null)\n  );\n};\n\n_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n\nvar _Home = __webpack_require__(/*! ./components/Home */ \"./src/components/Home/index.js\");\n\nvar _Home2 = _interopRequireDefault(_Home);\n\nvar _CreateActivity = __webpack_require__(/*! ./components/CreateActivity */ \"./src/components/CreateActivity/index.js\");\n\nvar _CreateActivity2 = _interopRequireDefault(_CreateActivity);\n\nvar _configureReduxStore = __webpack_require__(/*! ./configureReduxStore */ \"./src/configureReduxStore.js\");\n\nvar _configureReduxStore2 = _interopRequireDefault(_configureReduxStore);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar store = (0, _configureReduxStore2.default)();\n\nvar App = function App() {\n  return _react2.default.createElement(\n    _reactRedux.Provider,\n    { store: store },\n    _react2.default.createElement(_CreateActivity2.default, null)\n  );\n};\n\n_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));\n\n//# sourceURL=webpack:///./src/app.js?");
+
+/***/ }),
+
+/***/ "./src/components/CreateActivity/index.js":
+/*!************************************************!*\
+  !*** ./src/components/CreateActivity/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar CreateActivity = function CreateActivity() {\n  return _react2.default.createElement(\n    \"div\",\n    null,\n    _react2.default.createElement(\n      \"h1\",\n      null,\n      \"Activities\"\n    ),\n    _react2.default.createElement(\n      \"label\",\n      null,\n      \"Activity Name\",\n      _react2.default.createElement(\"input\", { type: \"text\" })\n    ),\n    _react2.default.createElement(\n      \"label\",\n      null,\n      \"Date activity was done\",\n      _react2.default.createElement(\"input\", { type: \"date\" })\n    )\n  );\n};\n\nexports.default = CreateActivity;\n\n//# sourceURL=webpack:///./src/components/CreateActivity/index.js?");
 
 /***/ }),
 
