@@ -3,7 +3,7 @@ const path = require('path');
 const mysql = require('mysql');
 
 const app = express();
-const port = 14928;
+const port = 14929;
 
 var connection = mysql.createConnection({
     host: 'classmysql.engr.oregonstate.edu',
@@ -16,9 +16,30 @@ connection.connect();
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/activities', function(req, res) {
+//this is to get routing to work
+// app.get('/app/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'dist/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
+
+// endpoint for getting everything related to activities
+app.get('/api/activities', function(req, res) {
   connection.query('SELECT * FROM activities;', function(err, result) {
-    res.send(result); 
+    res.body = result;
+    // res.send(result); 
+    res.json(result);
+  });
+});
+
+// endpoint for getting everything related to reading activities including the normal activity fields
+app.get('/api/reading', function(req, res) {
+  connection.query('SELECT * FROM reading INNER JOIN activities ON activities.id=reading.aid;', function(err, result) {
+    res.body = result;
+    // res.send(result);
+    res.json(result);
   });
 });
 
