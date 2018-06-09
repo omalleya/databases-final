@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import { getActivities, getReadingActivities } from '../../../utils/apiCalls';
 
 class Reading extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activities: [],
+      activityDropdown: [],
     }
   }
 
   componentWillMount() {
-    fetch('/api/reading')
-      .then(res => {
-        return res.json();
-      })
+    getActivities()
+      .then(activityDropdown => {
+        this.setState({ activityDropdown });
+      });
+
+    getReadingActivities()
       .then(activities => {
         this.setState({ activities });
-      })
-      .catch(err => console.log(err));
+      });
   }
 
   render() {
@@ -31,7 +34,9 @@ class Reading extends Component {
             <div>
               <label htmlFor="baseActivity">Base Activity</label>
               <select id="baseActivity">
-                <option value="NULL">NULL</option>
+                {
+                  this.state.activityDropdown.map((el, i) => <option key={i} val={el.id}>{el.name}</option>)
+                }
               </select>
             </div>
             <div>
@@ -48,9 +53,12 @@ class Reading extends Component {
         <div>
           <h3>Current Reading Activities:</h3>
           {this.state.activities.map((activity, i) => (
-            <p key={i}>
-              {activity.name}
-            </p>
+            <div>
+              <p key={i}>
+                {activity.name}
+              </p>
+              <button>Delete above entry</button>
+            </div>
           ))}
         </div>
       </div>
